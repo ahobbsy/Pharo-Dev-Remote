@@ -1,0 +1,24 @@
+{
+  "name": "Pharo Cloud Smalltalk Environment",
+  "image": "://microsoft.com",
+  
+  // Install the lightweight VNC desktop environment
+  "features": {
+    "ghcr.io/devcontainers/features/desktop-lite:1": {
+      "password": "pharo",
+      "webPort": "6080"
+    }
+  },
+
+  // Ports to expose. 6080 is the standard web client for noVNC
+  "forwardPorts": [6080],
+  "portsAttributes": {
+    "6080": {
+      "label": "Pharo Desktop UI",
+      "onAutoForward": "openBrowser"
+    }
+  },
+
+  // Automatically download Pharo 12 inside the container background
+  "postCreateCommand": "mkdir -p ~/pharo && cd ~/pharo && curl -L https://pharo.org | bash"
+}

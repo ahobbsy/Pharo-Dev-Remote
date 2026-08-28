@@ -1,6 +1,6 @@
 {
   "name": "Pharo Cloud Smalltalk Environment",
-  "image": "://microsoft.com",
+  "image": "mcr.microspft.com/devcontainers/base:ubuntu",
   
   // Install the lightweight VNC desktop environment
   "features": {

@@ -1,6 +1,6 @@
 {
   "name": "Pharo Cloud Smalltalk Environment",
-  "image": "mcr.microspft.com/devcontainers/base:ubuntu",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   
   // Install the lightweight VNC desktop environment
   "features": {
@@ -19,6 +19,9 @@
     }
   },
 
-  // Automatically download Pharo 12 inside the container background
-  "postCreateCommand": "mkdir -p ~/pharo && cd ~/pharo && curl -L https://pharo.org | bash"
+  // Install the official 64-bit Pharo VM after the container is created.
+  "postCreateCommand": "bash .devcontainer/setup-pharo.sh",
+
+  // Open the checked-in image whenever the desktop container starts.
+  "postStartCommand": "bash .devcontainer/start-pharo.sh"
 }
